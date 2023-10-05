@@ -4,11 +4,9 @@ const initdb = async () => {
  await openDB('jateDB', 1, {
     upgrade(db) {
       if (db.objectStoreNames.contains('jate')) {
-        console.log('jate store already exists');
         return;
       }
       db.createObjectStore('jate', { keyPath: 'id', autoIncrement: true });
-      console.log('jate store created');
     },
   });
   console.log('DB OPEN');

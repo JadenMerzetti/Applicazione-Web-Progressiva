@@ -21,7 +21,6 @@ export default class {
     });
 
     getDb().then((data) => {
-      console.info('Loaded data from IndexedDB, injecting into editor');
       this.editor.setValue(data || localData || header);
     });
 
@@ -30,7 +29,6 @@ export default class {
     });
 
     this.editor.on('blur', () => {
-      console.log('The editor has lost focus');
       putDb(localStorage.getItem('content'));
     });
   }
